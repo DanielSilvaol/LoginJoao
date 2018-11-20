@@ -1,0 +1,458 @@
+<html>
+<head>
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+
+<style>
+/* Center the loader */
+#loader {
+}
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"> 
+<svg version="1.1" id="preloader" x="0px" y="0px" width="240px" height="120px" viewBox="0 0 240 120">
+
+<style type="text/css" >
+	<![CDATA[
+
+		#plug,
+		#socket { fill:#FDB515 }
+
+		#loop-normal { fill: none; stroke: #FDB515; stroke-width: 12 }
+		#loop-offset { display: none }
+
+	]]>
+</style>
+
+<path id="loop-normal" class="st1" d="M120.5,60.5L146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0z">
+	<animate attributeName="stroke-dasharray" attributeType="XML"
+    	from="500, 50"  to="450 50"
+    	begin="0s" dur="2s"
+    	repeatCount="indefinite"/>
+	<animate attributeName="stroke-dashoffset" attributeType="XML"
+    	from="-40"  to="-540"
+    	begin="0s" dur="2s"
+    	repeatCount="indefinite"/>  
+</path>
+  
+<path id="loop-offset" d="M146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0L120.5,60.5
+L146.48,87.02z"/>
+  
+<path id="socket" d="M7.5,0c0,8.28-6.72,15-15,15l0-30C0.78-15,7.5-8.28,7.5,0z"/>  
+  
+<path id="plug" d="M0,9l15,0l0-5H0v-8.5l15,0l0-5H0V-15c-8.29,0-15,6.71-15,15c0,8.28,6.71,15,15,15V9z"/>
+  
+<animateMotion
+	xlink:href="#plug"
+  	dur="2s"
+	rotate="auto"
+	repeatCount="indefinite"
+	calcMode="linear"
+	keyTimes="0;1"    
+	keySplines="0.42, 0, 0.58, 1">
+	<mpath xlink:href="#loop-normal"/>
+</animateMotion>
+  
+<animateMotion             
+	xlink:href="#socket"
+  	dur="2s"
+	rotate="auto"
+	repeatCount="indefinite"
+	calcMode="linear"
+	keyTimes="0;1"
+	keySplines="0.42, 0, 0.58, 1">
+	<mpath xlink:href="#loop-offset"/>
+</animateMotion>  
+</svg>
+</div>
+
+
+<script>
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
+	<div class="area" style="display:none;" id="myDiv" class="animate-bottom">
+<!-- 	<form action="ControlarLuz" method="get" style="margin-left: 100px">
+			<input type="radio" name="comando" value="L">Ligar <input
+				type="radio" name="comando" value="D">Desligar</input> <input
+				type="radio" name="comando" value="I" checked="checked">Interruptor</input>
+			<input type="submit" value="Enviar" />
+
+			<!--  <button id="luz" type="submit" name="comando" value=""> 
+			<input type="image" id="myimage" src="img/lampada-on.gif"
+				onClick="ligar();" alt="lampada" width="-50%" height="-50%" />
+			 	</button>
+
+		</form>  -->
+		
+		
+		
+		
+		
+	<div id='settings'>
+  <input checked class='nav' name='nav' type='radio'>
+  <span class='nav'>Perfil</span>
+  <input class='nav' name='nav' type='radio'>
+  <span class='nav'>Conta</span>
+  <input class='nav' name='nav' type='radio'>
+  <span class='nav'>Configurações</span>
+  <input class='nav' name='nav' type='radio'>
+  <span class='nav'>Avançado</span>
+  <main class='content'>
+    <section id='profile'>
+      <form>
+        <ul>
+          <li class='large padding avatar'>
+            <span style="background-image: url('img/perfil.jpeg');"></span>
+            <div>
+              <fieldset class='material-checkbox'>
+                <div>
+                  <input>
+                  <div class='check'>
+                    <span>
+                      <svg viewBox='0 0 24 24'>
+                        <g>
+                          <line x1='4.5' x2='9.24' y1='12.5' y2='17.24'></line>
+                          <line x1='9.24' x2='19.76' y1='17.24' y2='6.73'></line>
+                        </g>
+                        <g>
+                          <line x1='4.5' x2='9.24' y1='12.5' y2='17.24'></line>
+                          <line x1='9.24' x2='19.76' y1='17.24' y2='6.73'></line>
+                        </g>
+                      </svg>
+                    </span>
+                    <label>Gravar?</label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class='material-button'>
+                <div>
+                  <button>Mudar Foto</button>
+                </div>
+              </fieldset>
+            </div>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Nome</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Local</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>CPF</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>RG</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li class='large'>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Numero de energia</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li class='large padding'>
+            <fieldset class='material-button center'>
+              <div>
+                <input class='save' type='submit' value='Salvar'>
+              </div>
+            </fieldset>
+          </li>
+        </ul>
+      </form>
+    </section>
+    <section id='account'>
+      <form>
+        <ul>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>E-mail</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Nick</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Senha</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li>
+            <fieldset class='material'>
+              <div>
+                <input>
+                <label>Confirmar Senha</label>
+                <hr>
+              </div>
+            </fieldset>
+          </li>
+          <li class='padding'>
+            <fieldset class='material-button'>
+              <div>
+                <button class='connect gh connected'>
+                  <span>Desconectar Github</span>
+                </button>
+              </div>
+            </fieldset>
+          </li>
+          <li class='padding'>
+            <fieldset class='material-button'>
+              <div>
+                <button class='connect tw'>
+                  <span>Conectar Twitter</span>
+                </button>
+              </div>
+            </fieldset>
+          </li>
+          <li class='padding'>
+            <fieldset class='material-button'>
+              <div>
+                <button class='connect fb'>
+                  <span>Conectar Facebook</span>
+                </button>
+              </div>
+            </fieldset>
+          </li>
+          <li class='padding'>
+            <fieldset class='material-button'>
+              <div>
+                <button class='connect li'>
+                  <span>Conectar LinkedIn</span>
+                </button>
+              </div>
+            </fieldset>
+          </li>
+          <li class='large padding'>
+            <fieldset class='material-button center'>
+              <div>
+                <input class='save' type='submit' value='Salvar'>
+              </div>
+            </fieldset>
+          </li>
+        </ul>
+      </form>
+    </section>
+    <section class='upcoming' id='privacy'>
+      <div class='container'>
+  <div class='card temp'>
+    <div class='inner'>
+      <div class='icon'></div>
+      <div class='title'>
+        <div class='text'>TEMPERATURA</div>
+      </div>
+      <div class='number'>22</div>
+      <div class='measure'>CELSIUS</div>
+    </div>
+  </div>
+  <div class='card energy'>
+    <div class='inner'>
+      <div class='icon'></div>
+      <div class='title'>
+        <div class='text'>ENERGIA</div>
+      </div>
+      <div class='number'>45</div>
+      <div class='measure'>kW/HORA</div>
+    </div>
+  </div>
+  <a href="consumo.html"><button type="submit" style="width: 100px; height: 30px; margin-top: 10%">Saiba mais...</button></a>
+</div>
+
+    </section>
+    <section class='upcoming' id='advanced'>
+      	<form action="ControlarLuz" method="get" style="margin-left: 100px">
+			<input type="radio" name="comando" value="L">Ligar <input
+				type="radio" name="comando" value="D">Desligar</input> <input
+				type="radio" name="comando" value="I" checked="checked">Interruptor</input>
+			<input type="submit" value="Enviar" />
+
+			  <button id="luz" type="submit" name="comando" value="" style="background: white;"> 
+			<input type="image" id="myimage" src="img/lampada-on.gif"
+				onClick="ligar();" alt="lampada" width="-50%" height="-50%" style="background: white"/>
+			 	</button>
+
+		</form>
+    </section>
+  </main>
+</div>
+
+		
+		
+		
+		
+		
+		
+	</div><nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            
+painel de controle
+                        </span>
+                    </a>
+                  
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Componentes 
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            Formulários
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fa fa-folder-open fa-2x"></i>
+                        <span class="nav-text">
+                            Páginas
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-chart-bar fa-2x"></i>
+                        <span class="nav-text">
+                           Gráficos e Estatísticas
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-font fa-2x"></i>
+                        <span class="nav-text">
+                           citações
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                       <i class="fa fa-table fa-2x"></i>
+                        <span class="nav-text">
+                            Tabelas
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Mapas
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            Documentação
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="#">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            	Sair
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+		
+		
+</body>
+
+<script type="text/javascript">
+	var element = document.getElementById('myimage');
+	var element2 = document.getElementById('luz');
+	function ligar() {
+		if (element.src.match("lampada-on")) {
+			element.src = "img/lampada-off.gif";
+			//if (element2.value.match("D")) {
+			element2.value = "L";
+			//		}
+		} else {
+			element.src = "img/lampada-on.gif";
+			//		if (element2.value.match("L")) {
+			element2.value = "D";
+			//	}
+		}
+	};
+</script>
+</html>
